@@ -1,3 +1,14 @@
+terraform {
+  required_version = ">= 1.5.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0, < 7.0"
+    }
+  }
+}
+
 provider "aws" {
   alias  = "primary"
   region = "us-east-1"
@@ -9,7 +20,8 @@ provider "aws" {
 }
 
 module "order_events" {
-  source = "pomo-studio/event-consumer/aws"
+  source  = "pomo-studio/event-consumer/aws"
+  version = "~> 1.0"
 
   providers = {
     aws.primary = aws.primary
