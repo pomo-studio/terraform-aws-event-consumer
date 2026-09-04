@@ -1,6 +1,7 @@
 # terraform-aws-event-consumer
 
-[![Terraform Registry](https://img.shields.io/badge/Terraform-Registry-7B42BC?logo=terraform)](https://registry.terraform.io/modules/pomo-studio/event-consumer/aws)
+[![Terraform Validation](https://github.com/pomo-studio/terraform-aws-event-consumer/actions/workflows/terraform.yml/badge.svg)](https://github.com/pomo-studio/terraform-aws-event-consumer/actions/workflows/terraform.yml)
+[![Terraform Registry](https://img.shields.io/badge/terraform-registry-844FBA?logo=terraform)](https://registry.terraform.io/modules/pomo-studio/event-consumer/aws)
 
 Per-service EventBridge consumer — subscribes to events on a shared bus and routes them through SQS for reliable processing.
 
