@@ -131,3 +131,119 @@ module "order_events" {
 ## License
 
 MIT
+
+## Maintaining This Module
+
+The generated interface below is authoritative for requirements, providers, resources, inputs, and outputs. Regenerate with `terraform-docs` **v0.20.0**: `terraform-docs .`. CI fails on drift; keep explanatory prose outside the generated markers.
+
+See the [contribution guide](https://github.com/pomo-studio/.github/blob/main/CONTRIBUTING.md) and [security policy](https://github.com/pomo-studio/.github/blob/main/SECURITY.md). PR validation does not prove a live plan or deployment. Infrastructure plans and applies belong in Terraform Cloud; never provide cloud credentials to untrusted PR code.
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.0, < 7.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws.dr"></a> [aws.dr](#provider\_aws.dr) | 6.63.0 |
+| <a name="provider_aws.primary"></a> [aws.primary](#provider\_aws.primary) | 6.63.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_cloudwatch_event_rule.dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule) | resource |
+| [aws_cloudwatch_event_rule.primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule) | resource |
+| [aws_cloudwatch_event_target.logs_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
+| [aws_cloudwatch_event_target.logs_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
+| [aws_cloudwatch_event_target.sqs_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
+| [aws_cloudwatch_event_target.sqs_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
+| [aws_cloudwatch_log_group.eventbridge_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.eventbridge_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.lambda_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_group.lambda_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_cloudwatch_log_resource_policy.eventbridge_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_resource_policy) | resource |
+| [aws_cloudwatch_log_resource_policy.eventbridge_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_resource_policy) | resource |
+| [aws_cloudwatch_metric_alarm.dlq_depth_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.dlq_depth_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.lambda_errors_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.lambda_errors_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.lambda_throttles_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.lambda_throttles_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_iam_role.lambda](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy.lambda_sqs_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.lambda_sqs_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy_attachment.lambda_basic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_lambda_event_source_mapping.dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_event_source_mapping) | resource |
+| [aws_lambda_event_source_mapping.primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_event_source_mapping) | resource |
+| [aws_lambda_function.dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
+| [aws_lambda_function.primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function) | resource |
+| [aws_sns_topic.alarms_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
+| [aws_sns_topic.alarms_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
+| [aws_sns_topic_subscription.email_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
+| [aws_sns_topic_subscription.email_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
+| [aws_sqs_queue.dlq_dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
+| [aws_sqs_queue.dlq_primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
+| [aws_sqs_queue.dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
+| [aws_sqs_queue.primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
+| [aws_sqs_queue_policy.dr](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy) | resource |
+| [aws_sqs_queue_policy.primary](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_alarm_email"></a> [alarm\_email](#input\_alarm\_email) | SNS alarm destination (required when enable\_alarms = true) | `string` | `null` | no |
+| <a name="input_bus_name_dr"></a> [bus\_name\_dr](#input\_bus\_name\_dr) | EventBridge bus name in the DR region. Required when enable\_dr = true. | `string` | `null` | no |
+| <a name="input_bus_name_primary"></a> [bus\_name\_primary](#input\_bus\_name\_primary) | EventBridge bus name in the primary region — typically from event-bus module output | `string` | n/a | yes |
+| <a name="input_create_lambda"></a> [create\_lambda](#input\_create\_lambda) | Create a Lambda function to process events from SQS | `bool` | `false` | no |
+| <a name="input_dlq_alarm_threshold"></a> [dlq\_alarm\_threshold](#input\_dlq\_alarm\_threshold) | DLQ message count that triggers alarm | `number` | `1` | no |
+| <a name="input_dlq_visibility_timeout_seconds"></a> [dlq\_visibility\_timeout\_seconds](#input\_dlq\_visibility\_timeout\_seconds) | DLQ visibility timeout in seconds | `number` | `30` | no |
+| <a name="input_enable_alarms"></a> [enable\_alarms](#input\_enable\_alarms) | Enable CloudWatch alarms (DLQ depth, Lambda errors, Lambda throttles) | `bool` | `true` | no |
+| <a name="input_enable_dlq"></a> [enable\_dlq](#input\_enable\_dlq) | Enable Dead Letter Queue for failed events | `bool` | `true` | no |
+| <a name="input_enable_dr"></a> [enable\_dr](#input\_enable\_dr) | Deploy consumer stack (rule + queue + Lambda + alarms) in the DR region. Disable for dev/staging. | `bool` | `true` | no |
+| <a name="input_enable_logging"></a> [enable\_logging](#input\_enable\_logging) | Log matched EventBridge events to CloudWatch | `bool` | `true` | no |
+| <a name="input_event_pattern"></a> [event\_pattern](#input\_event\_pattern) | EventBridge event pattern — which events this consumer receives. See AWS docs for pattern syntax. | `any` | n/a | yes |
+| <a name="input_lambda_batch_size"></a> [lambda\_batch\_size](#input\_lambda\_batch\_size) | Max SQS records per Lambda invocation (1–10000) | `number` | `10` | no |
+| <a name="input_lambda_code"></a> [lambda\_code](#input\_lambda\_code) | Path to Lambda deployment package zip (required when create\_lambda = true) | `string` | `null` | no |
+| <a name="input_lambda_environment_variables"></a> [lambda\_environment\_variables](#input\_lambda\_environment\_variables) | Environment variables for Lambda function. Applied to both primary and DR functions. | `map(string)` | `{}` | no |
+| <a name="input_lambda_error_threshold"></a> [lambda\_error\_threshold](#input\_lambda\_error\_threshold) | Lambda errors per minute that trigger alarm | `number` | `1` | no |
+| <a name="input_lambda_handler"></a> [lambda\_handler](#input\_lambda\_handler) | Lambda function handler | `string` | `"index.handler"` | no |
+| <a name="input_lambda_memory_size"></a> [lambda\_memory\_size](#input\_lambda\_memory\_size) | Lambda memory in MB | `number` | `128` | no |
+| <a name="input_lambda_runtime"></a> [lambda\_runtime](#input\_lambda\_runtime) | Lambda runtime | `string` | `"nodejs20.x"` | no |
+| <a name="input_lambda_timeout"></a> [lambda\_timeout](#input\_lambda\_timeout) | Lambda timeout in seconds. Must be less than sqs\_visibility\_timeout\_seconds. | `number` | `30` | no |
+| <a name="input_max_receive_count"></a> [max\_receive\_count](#input\_max\_receive\_count) | Receive attempts before moving to DLQ (1–1000) | `number` | `3` | no |
+| <a name="input_name"></a> [name](#input\_name) | Resource naming prefix (e.g. 'payments-enricher') | `string` | n/a | yes |
+| <a name="input_sqs_message_retention_seconds"></a> [sqs\_message\_retention\_seconds](#input\_sqs\_message\_retention\_seconds) | SQS message retention period in seconds | `number` | `345600` | no |
+| <a name="input_sqs_visibility_timeout_seconds"></a> [sqs\_visibility\_timeout\_seconds](#input\_sqs\_visibility\_timeout\_seconds) | SQS visibility timeout in seconds. Should be at least 6× lambda\_timeout. | `number` | `180` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to all resources | `map(string)` | `{}` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_alarm_topic_arn_dr"></a> [alarm\_topic\_arn\_dr](#output\_alarm\_topic\_arn\_dr) | ARN of the DR SNS alarm topic |
+| <a name="output_alarm_topic_arn_primary"></a> [alarm\_topic\_arn\_primary](#output\_alarm\_topic\_arn\_primary) | ARN of the primary SNS alarm topic |
+| <a name="output_dlq_arn_dr"></a> [dlq\_arn\_dr](#output\_dlq\_arn\_dr) | ARN of the DR Dead Letter Queue |
+| <a name="output_dlq_arn_primary"></a> [dlq\_arn\_primary](#output\_dlq\_arn\_primary) | ARN of the primary Dead Letter Queue |
+| <a name="output_lambda_arn_dr"></a> [lambda\_arn\_dr](#output\_lambda\_arn\_dr) | ARN of the DR Lambda function |
+| <a name="output_lambda_arn_primary"></a> [lambda\_arn\_primary](#output\_lambda\_arn\_primary) | ARN of the primary Lambda function |
+| <a name="output_lambda_function_name_dr"></a> [lambda\_function\_name\_dr](#output\_lambda\_function\_name\_dr) | Name of the DR Lambda function |
+| <a name="output_lambda_function_name_primary"></a> [lambda\_function\_name\_primary](#output\_lambda\_function\_name\_primary) | Name of the primary Lambda function |
+| <a name="output_lambda_role_arn"></a> [lambda\_role\_arn](#output\_lambda\_role\_arn) | ARN of the Lambda execution role (shared by both regions) |
+| <a name="output_queue_arn_dr"></a> [queue\_arn\_dr](#output\_queue\_arn\_dr) | ARN of the DR SQS queue |
+| <a name="output_queue_arn_primary"></a> [queue\_arn\_primary](#output\_queue\_arn\_primary) | ARN of the primary SQS queue |
+| <a name="output_queue_url_dr"></a> [queue\_url\_dr](#output\_queue\_url\_dr) | URL of the DR SQS queue |
+| <a name="output_queue_url_primary"></a> [queue\_url\_primary](#output\_queue\_url\_primary) | URL of the primary SQS queue |
+| <a name="output_rule_arn_dr"></a> [rule\_arn\_dr](#output\_rule\_arn\_dr) | ARN of the DR EventBridge rule |
+| <a name="output_rule_arn_primary"></a> [rule\_arn\_primary](#output\_rule\_arn\_primary) | ARN of the primary EventBridge rule |
+<!-- END_TF_DOCS -->
