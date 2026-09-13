@@ -7,7 +7,7 @@ variable "name" {
 }
 
 variable "bus_name_primary" {
-  description = "EventBridge bus name in the primary region — typically from event-bus module output"
+  description = "EventBridge bus name in the primary region, typically from the event-bus module output"
   type        = string
 }
 
@@ -29,7 +29,7 @@ variable "enable_dr" {
 }
 
 variable "event_pattern" {
-  description = "EventBridge event pattern — which events this consumer receives. See AWS docs for pattern syntax."
+  description = "EventBridge event pattern: which events this consumer receives. See the AWS docs for pattern syntax."
   type        = any
 }
 
