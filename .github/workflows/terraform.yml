@@ -11,12 +11,6 @@ on:
       - '.github/workflows/interface-docs.yml'
   pull_request:
     branches: [main]
-    paths:
-      - '**.tf'
-      - '**.tfvars'
-      - '.tflint.hcl'
-      - '.github/workflows/terraform.yml'
-      - '.github/workflows/interface-docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -122,3 +116,15 @@ jobs:
 
       - name: Run TFLint
         run: tflint -f compact --recursive
+
+  checks-passed:
+    name: Checks passed
+    # One stable required status check for branch protection. Dependabot
+    # auto-merge waits on it, so it covers every job above without listing each.
+    if: always()
+    needs: [fmt, validate, tflint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if any job failed or was cancelled
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
